@@ -1,0 +1,34 @@
+<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:foreground="?attr/selectableItemBackground">
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/sourceName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ABC News"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_below="@id/sourceName"
+        android:id="@+id/sourceDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/navigateIcon"
+        android:textSize="13sp"
+        android:text="Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com."
+        android:maxLines="2"
+        android:layout_marginBottom="5dp"/>
+
+    <ImageView
+        android:id="@+id/navigateIcon"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/sourceName"
+        android:layout_alignBottom="@id/sourceDescription"
+        android:src="@drawable/ic_arrow_right"/>
+</RelativeLayout>

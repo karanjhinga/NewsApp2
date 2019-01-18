@@ -1,0 +1,23 @@
+<LinearLayout
+    android:id="@+id/categorySelectedLayout"
+    android:visibility="gone"
+    android:background="@color/colorLiGrey"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/categoryName"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Category Name selected"/>
+    <ImageView
+        android:paddingRight="10dp"
+        android:id="@+id/removeCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_close"/>
+</LinearLayout>
