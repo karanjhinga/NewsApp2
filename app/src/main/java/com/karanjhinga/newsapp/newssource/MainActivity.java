@@ -15,6 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.karanjhinga.newsapp.categories.CategoryAdapter;
+import com.karanjhinga.newsapp.data.source.NewsRepository;
+import com.karanjhinga.newsapp.data.source.remote.NewsRemoteRepository;
+import com.karanjhinga.newsapp.data.utils.interfaces.GetSourcesCallback;
 import com.karanjhinga.newsapp.newschannel.NewsActivity;
 import com.karanjhinga.newsapp.categories.CategoryListener;
 import com.karanjhinga.newsapp.data.models.Source;
@@ -30,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements CategoryListener, SourceSelectedListener {
+public class MainActivity extends AppCompatActivity implements CategoryListener, SourceSelectedListener, GetSourcesCallback {
 
     private RelativeLayout contentMain;
     private LinearLayout noInternetLayout,loadingLayout,categoryLayout;
@@ -119,57 +122,15 @@ public class MainActivity extends AppCompatActivity implements CategoryListener,
     // FUNCTIONALITY OF LOADING ALL SOURCES
     private void loadData() {
         internetAndLoading();
-        ApiClient.getInstance().getApi().getAllSources(ApiClient.API_KEY).enqueue(new Callback<SourceList>() {
-            @Override
-            public void onResponse(@NonNull Call<SourceList> call, @NonNull Response<SourceList> response) {
+        NewsRepository.getInstance().getAllSources(this);
 
-                if (!response.isSuccessful()){  //CHECK IF RESPONSE IS SUCCESSFUL
-                    Toast.makeText(MainActivity.this, "Error: "+response.code() , Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (response.body().status.equals("ok")) {      //LOAD DATA INTO LIST IF SUCCESSFUL
-                    sourceList = response.body().sources;
-                    sourcesAdapter.updateData(sourceList);
-                    sourceRecycler.smoothScrollToPosition(0);
-                    loadingLayout.setVisibility(View.GONE);
-                    contentMain.setVisibility(View.VISIBLE);
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<SourceList> call, @NonNull Throwable t) {
-                Toast.makeText(MainActivity.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     //FUNCTIONALITY OF LOADING SOURCES BY CATEGORY
     private void loadData(String category) {
         internetAndLoading();
-        ApiClient.getInstance().getApi().getSourcesByCategory(category,ApiClient.API_KEY).enqueue(new Callback<SourceList>() {
-            @Override
-            public void onResponse(@NonNull Call<SourceList> call, @NonNull Response<SourceList> response) {
+        NewsRepository.getInstance().getAllSourcesByCategory(category, this);
 
-                if (!response.isSuccessful()){      //CHECK IF RESPONSE IS SUCCESSFUL
-                    Toast.makeText(MainActivity.this, "Error: "+response.code() , Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (response.body().status.equals("ok")) { //LOAD DATA INTO LIST IF SUCCESSFUL
-                    sourceList = response.body().sources;
-                    sourcesAdapter.updateData(sourceList);
-                    sourceRecycler.smoothScrollToPosition(0);
-                    loadingLayout.setVisibility(View.GONE);
-                    contentMain.setVisibility(View.VISIBLE);
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<SourceList> call, @NonNull Throwable t) {
-                Toast.makeText(MainActivity.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void internetAndLoading(){
@@ -181,5 +142,18 @@ public class MainActivity extends AppCompatActivity implements CategoryListener,
         noInternetLayout.setVisibility(View.GONE);
         loadingLayout.setVisibility(View.VISIBLE);                    //SHOW LOADING LAYOUT
         contentMain.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onSourcesFetched(List<Source> sourceList) {
+        sourcesAdapter.updateData(sourceList);
+        sourceRecycler.smoothScrollToPosition(0);
+        loadingLayout.setVisibility(View.GONE);
+        contentMain.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onError(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

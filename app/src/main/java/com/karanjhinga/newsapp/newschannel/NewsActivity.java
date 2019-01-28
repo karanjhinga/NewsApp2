@@ -11,8 +11,10 @@ import android.widget.Toast;
 
 import com.karanjhinga.newsapp.data.models.Article;
 import com.karanjhinga.newsapp.data.models.NewsList;
+import com.karanjhinga.newsapp.data.source.NewsRepository;
 import com.karanjhinga.newsapp.data.source.remote.api.ApiClient;
 import com.karanjhinga.newsapp.R;
+import com.karanjhinga.newsapp.data.utils.interfaces.GetNewsCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NewsActivity extends AppCompatActivity {
+public class NewsActivity extends AppCompatActivity implements GetNewsCallback {
 
     private RecyclerView newsRecycler;
     private NewsAdapter newsAdapter;
@@ -62,26 +64,7 @@ public class NewsActivity extends AppCompatActivity {
 
     /* METHOD TO LOAD MORE DATA*/
     private void loadMoreData() {
-
-        ApiClient.getInstance().getApi().getNews(sourceId,ApiClient.API_KEY,pageNo++,10).enqueue(new Callback<NewsList>() {
-            @Override
-            public void onResponse(@NonNull Call<NewsList> call, @NonNull Response<NewsList> response) {
-                if (!response.isSuccessful()){
-                    Toast.makeText(NewsActivity.this, "Error: "+response.code(), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                list = response.body().articles;
-                newsAdapter.deleteLastItem();
-                newsAdapter.addAll(list);
-                newsAdapter.add(new Article(1));
-
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<NewsList> call, @NonNull Throwable t) {
-                Toast.makeText(NewsActivity.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        NewsRepository.getInstance().getNews(sourceId,pageNo++,this);
     }
 
     private void inflateViews() {
@@ -98,5 +81,17 @@ public class NewsActivity extends AppCompatActivity {
         toolbarTitle.setText(sourceName);  // CHANGING TOOLBAR TITLE TO SOURCE NAME
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // SHOW BACK BUTTON ON OUR TOOLBAR
+    }
+
+    @Override
+    public void onNewsFetched(List<Article> newsList) {
+        newsAdapter.deleteLastItem();
+        newsAdapter.addAll(newsList);
+        newsAdapter.add(new Article(1));
+    }
+
+    @Override
+    public void onError(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

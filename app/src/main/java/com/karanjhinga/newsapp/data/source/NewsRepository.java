@@ -1,6 +1,7 @@
 package com.karanjhinga.newsapp.data.source;
 
 import com.karanjhinga.newsapp.data.source.remote.NewsRemoteRepository;
+import com.karanjhinga.newsapp.data.utils.interfaces.GetNewsCallback;
 import com.karanjhinga.newsapp.data.utils.interfaces.GetSourcesCallback;
 
 public class NewsRepository {
@@ -19,13 +20,11 @@ public class NewsRepository {
         newsRemoteRepository.getAllSources(getSourcesCallback);
     }
 
-    public void getAllSourcesByCategory(String category){
-
-
+    public void getAllSourcesByCategory(String category,GetSourcesCallback getSourcesCallback){
+        newsRemoteRepository.getAllSourcesByCategory(category,getSourcesCallback);
     }
 
-    public void getNews(String source,int page){
-
-
+    public void getNews(String source, int page, GetNewsCallback getNewsCallback){
+        newsRemoteRepository.getNews(source,page,getNewsCallback);
     }
 }
