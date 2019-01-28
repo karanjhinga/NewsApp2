@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp.NewsChannel;
+package com.karanjhinga.newsapp.newschannel;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.karanjhinga.newsapp.Data.Models.Article;
-import com.karanjhinga.newsapp.Others.GlideApp;
-import com.karanjhinga.newsapp.Others.Helper;
+import com.karanjhinga.newsapp.data.models.Article;
 import com.karanjhinga.newsapp.R;
+import com.karanjhinga.newsapp.utils.GlideApp;
+import com.karanjhinga.newsapp.utils.TimeUtils;
 
 import java.text.ParseException;
 import java.util.List;
@@ -62,7 +62,7 @@ public class NewsAdapter extends RecyclerView.Adapter {
             holder.description.setText(news.description);
 
             try {
-                holder.time.setText(Helper.convertTimeStamp(news.publishedAt));
+                holder.time.setText(TimeUtils.convertTimeStamp(news.publishedAt));
             } catch (ParseException e) {
                 Log.e("Tag","Error date conversion");
                 holder.time.setText(news.publishedAt);

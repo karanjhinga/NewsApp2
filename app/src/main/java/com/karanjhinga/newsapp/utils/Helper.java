@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp.Others;
+package com.karanjhinga.newsapp.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -13,13 +13,7 @@ public class Helper {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm.getActiveNetworkInfo() != null;
     }
-        // A HELPER METHOD TO TRANSFORM THE TIMESTAMP INTO BEAUTIFUL LOOKING DATE !
-    public static String convertTimeStamp(String timestamp) throws ParseException {
-        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-        SimpleDateFormat outputFormat = new SimpleDateFormat("HH:mm a MMM dd, yyyy");
-        Date date = inputFormat.parse(timestamp);
-        return outputFormat.format(date);
-    }
+
 
 
 }

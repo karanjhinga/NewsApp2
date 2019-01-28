@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp.NewsSource;
+package com.karanjhinga.newsapp.newssource;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -14,13 +14,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.karanjhinga.newsapp.Categories.CategoryAdapter;
-import com.karanjhinga.newsapp.NewsChannel.NewsActivity;
-import com.karanjhinga.newsapp.Categories.CategoryListener;
-import com.karanjhinga.newsapp.Data.Models.Source;
-import com.karanjhinga.newsapp.Data.Models.SourceList;
-import com.karanjhinga.newsapp.Data.Source.remote.ApiClient;
-import com.karanjhinga.newsapp.Others.Helper;
+import com.karanjhinga.newsapp.categories.CategoryAdapter;
+import com.karanjhinga.newsapp.newschannel.NewsActivity;
+import com.karanjhinga.newsapp.categories.CategoryListener;
+import com.karanjhinga.newsapp.data.models.Source;
+import com.karanjhinga.newsapp.data.models.SourceList;
+import com.karanjhinga.newsapp.data.source.remote.api.ApiClient;
+import com.karanjhinga.newsapp.utils.Helper;
 import com.karanjhinga.newsapp.R;
 
 import java.util.ArrayList;
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements CategoryListener,
     // FUNCTIONALITY OF LOADING ALL SOURCES
     private void loadData() {
         internetAndLoading();
-        ApiClient.getInstance().getApi().getAllSources(ApiClient.api_key).enqueue(new Callback<SourceList>() {
+        ApiClient.getInstance().getApi().getAllSources(ApiClient.API_KEY).enqueue(new Callback<SourceList>() {
             @Override
             public void onResponse(@NonNull Call<SourceList> call, @NonNull Response<SourceList> response) {
 
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements CategoryListener,
     //FUNCTIONALITY OF LOADING SOURCES BY CATEGORY
     private void loadData(String category) {
         internetAndLoading();
-        ApiClient.getInstance().getApi().getSourcesByCategory(category,ApiClient.api_key).enqueue(new Callback<SourceList>() {
+        ApiClient.getInstance().getApi().getSourcesByCategory(category,ApiClient.API_KEY).enqueue(new Callback<SourceList>() {
             @Override
             public void onResponse(@NonNull Call<SourceList> call, @NonNull Response<SourceList> response) {
 

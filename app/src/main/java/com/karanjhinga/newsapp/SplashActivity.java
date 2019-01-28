@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.karanjhinga.newsapp.NewsSource.MainActivity;
+import com.karanjhinga.newsapp.newssource.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

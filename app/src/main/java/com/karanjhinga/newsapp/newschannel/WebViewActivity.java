@@ -1,16 +1,14 @@
-package com.karanjhinga.newsapp.NewsChannel;
+package com.karanjhinga.newsapp.newschannel;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.karanjhinga.newsapp.R;
 

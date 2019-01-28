@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp.NewsChannel;
+package com.karanjhinga.newsapp.newschannel;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,9 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.karanjhinga.newsapp.Data.Models.Article;
-import com.karanjhinga.newsapp.Data.Models.NewsList;
-import com.karanjhinga.newsapp.Data.Source.remote.ApiClient;
+import com.karanjhinga.newsapp.data.models.Article;
+import com.karanjhinga.newsapp.data.models.NewsList;
+import com.karanjhinga.newsapp.data.source.remote.api.ApiClient;
 import com.karanjhinga.newsapp.R;
 
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ public class NewsActivity extends AppCompatActivity {
     /* METHOD TO LOAD MORE DATA*/
     private void loadMoreData() {
 
-        ApiClient.getInstance().getApi().getNews(sourceId,ApiClient.api_key,pageNo++,10).enqueue(new Callback<NewsList>() {
+        ApiClient.getInstance().getApi().getNews(sourceId,ApiClient.API_KEY,pageNo++,10).enqueue(new Callback<NewsList>() {
             @Override
             public void onResponse(@NonNull Call<NewsList> call, @NonNull Response<NewsList> response) {
                 if (!response.isSuccessful()){
