@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp;
+package com.karanjhinga.newsapp.NewsSource;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -14,14 +14,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.karanjhinga.newsapp.Adapters.CategoryAdapter;
-import com.karanjhinga.newsapp.Adapters.SourcesAdapter;
-import com.karanjhinga.newsapp.Interfaces.CategoryListener;
-import com.karanjhinga.newsapp.Interfaces.SourceSelectedListener;
-import com.karanjhinga.newsapp.Models.Source;
-import com.karanjhinga.newsapp.Models.SourceList;
-import com.karanjhinga.newsapp.Others.ApiClient;
+import com.karanjhinga.newsapp.Categories.CategoryAdapter;
+import com.karanjhinga.newsapp.NewsChannel.NewsActivity;
+import com.karanjhinga.newsapp.Categories.CategoryListener;
+import com.karanjhinga.newsapp.Data.Models.Source;
+import com.karanjhinga.newsapp.Data.Models.SourceList;
+import com.karanjhinga.newsapp.Data.Source.remote.ApiClient;
 import com.karanjhinga.newsapp.Others.Helper;
+import com.karanjhinga.newsapp.R;
 
 import java.util.ArrayList;
 import java.util.List;

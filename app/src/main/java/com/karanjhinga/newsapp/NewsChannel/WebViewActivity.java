@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp;
+package com.karanjhinga.newsapp.NewsChannel;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.karanjhinga.newsapp.R;
 
 import static android.view.View.GONE;
 

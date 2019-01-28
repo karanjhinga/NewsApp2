@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp.Models;
+package com.karanjhinga.newsapp.Data.Models;
 
 import com.google.gson.annotations.SerializedName;
 

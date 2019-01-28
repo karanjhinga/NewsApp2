@@ -13,11 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".NewsSource.MainActivity"/>
         <activity
-            android:name=".NewsActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".WebViewActivity" />
+            android:name=".NewsChannel.NewsActivity"
+            android:parentActivityName=".NewsSource.MainActivity" />
+        <activity android:name=".NewsChannel.WebViewActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

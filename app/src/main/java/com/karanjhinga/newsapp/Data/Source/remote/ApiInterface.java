@@ -1,13 +1,13 @@
-package com.karanjhinga.newsapp.Interfaces;
+package com.karanjhinga.newsapp.Data.Source.remote;
 
-import com.karanjhinga.newsapp.Models.NewsList;
-import com.karanjhinga.newsapp.Models.SourceList;
+import com.karanjhinga.newsapp.Data.Models.NewsList;
+import com.karanjhinga.newsapp.Data.Models.SourceList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface Api {
+public interface ApiInterface {
 
     // FUNCTION TO FETCH ALL SOURCES
     @GET("sources")

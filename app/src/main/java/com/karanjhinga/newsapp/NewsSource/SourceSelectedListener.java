@@ -1,6 +1,6 @@
-package com.karanjhinga.newsapp.Interfaces;
+package com.karanjhinga.newsapp.NewsSource;
 
-import com.karanjhinga.newsapp.Models.Source;
+import com.karanjhinga.newsapp.Data.Models.Source;
 
 
     /* A LISTENER FOR SOURCE SELECTION */

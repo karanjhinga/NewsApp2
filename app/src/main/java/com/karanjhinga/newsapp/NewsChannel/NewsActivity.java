@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp;
+package com.karanjhinga.newsapp.NewsChannel;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.karanjhinga.newsapp.Adapters.NewsAdapter;
-import com.karanjhinga.newsapp.Models.Article;
-import com.karanjhinga.newsapp.Models.NewsList;
-import com.karanjhinga.newsapp.Others.ApiClient;
+import com.karanjhinga.newsapp.Data.Models.Article;
+import com.karanjhinga.newsapp.Data.Models.NewsList;
+import com.karanjhinga.newsapp.Data.Source.remote.ApiClient;
+import com.karanjhinga.newsapp.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,4 @@
-package com.karanjhinga.newsapp.Others;
-
-import com.karanjhinga.newsapp.Interfaces.Api;
+package com.karanjhinga.newsapp.Data.Source.remote;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -27,7 +25,7 @@ public class ApiClient {
         return mInstance;
     }
 
-    public Api getApi(){
-        return retrofit.create(Api.class);
+    public ApiInterface getApi(){
+        return retrofit.create(ApiInterface.class);
     }
 }

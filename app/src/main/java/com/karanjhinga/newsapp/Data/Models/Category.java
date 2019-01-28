@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp.Models;
+package com.karanjhinga.newsapp.Data.Models;
 
 
     /* A MODEL CLASS TO REPRESENT A SINGLE CATEGORY */

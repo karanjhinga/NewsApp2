@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp.Adapters;
+package com.karanjhinga.newsapp.NewsChannel;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,11 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.karanjhinga.newsapp.Models.Article;
+import com.karanjhinga.newsapp.Data.Models.Article;
 import com.karanjhinga.newsapp.Others.GlideApp;
 import com.karanjhinga.newsapp.Others.Helper;
 import com.karanjhinga.newsapp.R;
-import com.karanjhinga.newsapp.WebViewActivity;
 
 import java.text.ParseException;
 import java.util.List;

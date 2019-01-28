@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp.Interfaces;
+package com.karanjhinga.newsapp.Categories;
 
     /* A LISTENER USED FOR CATEGORY SELECTION */
 

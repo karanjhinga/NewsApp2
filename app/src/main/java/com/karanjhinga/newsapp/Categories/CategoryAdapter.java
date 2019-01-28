@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp.Adapters;
+package com.karanjhinga.newsapp.Categories;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,8 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.karanjhinga.newsapp.Interfaces.CategoryListener;
-import com.karanjhinga.newsapp.Models.Category;
+import com.karanjhinga.newsapp.Data.Models.Category;
 import com.karanjhinga.newsapp.R;
 
 import java.util.ArrayList;

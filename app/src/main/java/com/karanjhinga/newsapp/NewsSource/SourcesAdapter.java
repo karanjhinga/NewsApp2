@@ -1,4 +1,4 @@
-package com.karanjhinga.newsapp.Adapters;
+package com.karanjhinga.newsapp.NewsSource;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,8 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.karanjhinga.newsapp.Interfaces.SourceSelectedListener;
-import com.karanjhinga.newsapp.Models.Source;
+import com.karanjhinga.newsapp.Data.Models.Source;
 import com.karanjhinga.newsapp.R;
 
 import java.util.List;
