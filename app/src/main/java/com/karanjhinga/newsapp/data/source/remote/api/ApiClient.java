@@ -8,7 +8,6 @@ public class ApiClient {
 
     private static final String BASE_URL = "https://newsapi.org/v2/"; //OUR BASE URL
     public static final String API_KEY = "41ec70a4fab74996a51b7c3802822f44"; // MY API KEY
-
     private Retrofit retrofit;
     private static ApiClient mInstance;
 
